@@ -1,0 +1,26 @@
+QWidget{
+    background-color: "#fcf6e5";
+}
+
+QLabel{
+    color: "#ffbb00";
+    font-size: 16px;
+    font-family: "futura";
+
+}
+
+QLabel#directions{
+    color: "#ffbb00";
+    font-size: 11px;
+    font-family: "futura";
+
+}
+
+QLabel#rating_value {
+    width: 150px;
+    height: 150px;
+}
+
+QLineEdit{
+    padding: 10px;
+}
