@@ -4,7 +4,7 @@ import time
 
 def twitter_scraper(first_name, last_name):
     url = "https://twitter.com/search?q=" + first_name + "%20" + last_name + "&src=tyah&lang=en"
-    print(url)
+
     driver = webdriver.Chrome()
     driver.get(url)
     time.sleep(5)
@@ -18,7 +18,7 @@ def twitter_scraper(first_name, last_name):
     tweets = soup.findAll("p", class_="tweet-text")
 
     words = [x.text.split() for x in tweets]
-
+    
     just_words = []
     for word in words:
         just_words += word
