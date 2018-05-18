@@ -26,5 +26,7 @@ def twitter_scraper(first_name, last_name):
     word_list2 = [word for word in word_list1 if "#" not in word]
     word_list3 = [word for word in word_list2 if "http" not in word]
     word_list4 = [word for word in word_list3 if "@" not in word]
-    print(word_list3)
+    word_list5 = [word for word in word_list4 if "." not in word]
+    word_list6 = [word for word in word_list5 if "-" not in word]
+    print(word_list6)
 twitter_scraper("John", "Lennon")
