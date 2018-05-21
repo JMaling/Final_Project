@@ -16,7 +16,10 @@ class Window(QWidget):
         self.grid.addWidget(self.input_name, 0, 0, 1, 2)
 
         self.name = QLineEdit(self)
-        self.grid.addWidget(self.name, 0, 1, 1, 3)
+        self.grid.addWidget(self.name, 0, 1, 1, 1)
+
+        self.rate_me = QPushButton("Rate them!")
+        self.grid.addWidget(self.rate_me, 0, 2, 1, 1)
 
         self.directions = QLabel("The rating scale is from 1 to 10, 10 being the best rating and 1 being the worst rating.")
         self.grid.addWidget(self.directions, 1, 0, 1, 6)
