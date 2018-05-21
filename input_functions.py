@@ -34,7 +34,7 @@ def frequent_words(word_list6):
     repeats = dict(repeats)
     repeats = list(repeats)
     repeats = repeats[-3:]
-    print(repeats)
+    return repeats
 
 def frequent_positive(good_words):
     good_repeats = [[word, good_words.count(word)] for word in good_words]

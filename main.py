@@ -2,6 +2,8 @@ import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from Twitter_Scraper import *
+from input_functions import *
 
 class Window(QWidget):
     def __init__(self):
@@ -74,6 +76,11 @@ class Window(QWidget):
         style_sheet = "main_style.css"
         with open(style_sheet) as f:
             self.setStyleSheet(f.read())
+
+    def hit_button(self):
+        twitter_words = twitter_scraper(self.name.text())
+        self.f_words.setText(frequent_words()[0])
+
 
     # def rating
 
