@@ -7,8 +7,8 @@ def word_process(positive_word_list, word_list6):
         if word in positive_word_list:
             good += 1
             good_words.append(word)
-    print(good)
-    print(good_words)
+
+    return good_words
 
     bad = 0
     bad_words = []
@@ -18,18 +18,14 @@ def word_process(positive_word_list, word_list6):
             bad += 1
             bad_words.append(word)
 
-    print(bad)
-    print(bad_words)
+    return bad_words
 
     positive_percentage = ((good)/(good + bad)) * 100
-    print(positive_percentage, end = "%")
 
     negative_percentage = 100 - positive_percentage
-    print(negative_percentage, end = "%")
 
-def rating():
-    rating = round((positive_percentage / 10), 1)
-    print(rating)
+    return negative_percentage, positive_percentage
+
 
 def frequent_words(word_list6):
 
@@ -40,7 +36,7 @@ def frequent_words(word_list6):
     repeats = repeats[-3:]
     print(repeats)
 
-def frequent_positive():
+def frequent_positive(good_words):
     good_repeats = [[word, good_words.count(word)] for word in good_words]
     print(good_repeats.sort(key=lambda x: x[1]))
     good_repeats = dict(good_repeats)
@@ -48,7 +44,7 @@ def frequent_positive():
     good_repeats = good_repeats[-3:]
     print(good_repeats)
 
-def frequent_negative():
+def frequent_negative(bad_words):
     bad_repeats = [[word, bad_words.count(word)] for word in bad_words]
     print(bad_repeats.sort(key=lambda x: x[1]))
     bad_repeats = dict(bad_repeats)
