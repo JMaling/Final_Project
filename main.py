@@ -78,8 +78,9 @@ class Window(QWidget):
             self.setStyleSheet(f.read())
 
     def hit_button(self):
-        twitter_words = twitter_scraper(self.name.text())
-        self.f_words.setText(frequent_words()[0])
+        # twitter_words = twitter_scraper(self.name.text())
+        # self.f_words.setText(frequent_words()[0])
+        pass
 
 
     # def rating
