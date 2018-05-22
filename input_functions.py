@@ -9,6 +9,8 @@ def word_process(positive_word_list, word_list6):
 
     return good_words
 
+
+def bad_word_count(negative_word_list, word_list6):
     bad = 0
     bad_words = []
 
@@ -19,6 +21,8 @@ def word_process(positive_word_list, word_list6):
 
     return bad_words
 
+
+def percentages(good, bad):
     positive_percentage = ((good)/(good + bad)) * 100
 
     negative_percentage = 100 - positive_percentage
@@ -50,3 +54,7 @@ def frequent_negative(bad_words):
     bad_repeats = list(bad_repeats)
     bad_repeats = bad_repeats[-3:]
     print(bad_repeats)
+
+
+if __name__ == "__main__":
+    
