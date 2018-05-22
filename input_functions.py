@@ -1,4 +1,3 @@
-
 def word_process(positive_word_list, word_list6):
     good = 0
     good_words = []

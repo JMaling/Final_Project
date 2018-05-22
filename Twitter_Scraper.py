@@ -2,8 +2,17 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
 
-def twitter_scraper(first_name, last_name):
-    url = "https://twitter.com/search?q=" + first_name + "%20" + last_name + "&src=tyah&lang=en"
+def twitter_scraper(string):
+    name_list = string.split()
+    url = "https://twitter.com/search?q="
+    for i in range(len(name_list)):
+        if i < len(name_list) - 1:
+            url += name_list[i] + "%20"
+        else:
+            url += name_list[i]
+    url += "&src=tyah&lang=en"
+    print(url)
+    print(name_list)
 
     driver = webdriver.Chrome()
     driver.get(url)
@@ -29,4 +38,4 @@ def twitter_scraper(first_name, last_name):
     word_list5 = [word for word in word_list4 if "." not in word]
     word_list6 = [word for word in word_list5 if "-" not in word]
     print(word_list6)
-twitter_scraper("John", "Lennon")
+twitter_scraper("42")
