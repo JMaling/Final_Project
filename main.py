@@ -28,6 +28,7 @@ class Window(QWidget):
 
         self.rate_me = QPushButton("Rate them!")
         self.grid.addWidget(self.rate_me, 1, 2, 1, 1)
+        self.rate_me.clicked.connect(lambda: self.hit_button())
 
         self.directions = QLabel("The rating scale is from 1 to 10, 10 being the best rating and 1 being the worst rating.")
         self.grid.addWidget(self.directions, 2, 0, 1, 6)
@@ -44,7 +45,6 @@ class Window(QWidget):
         self.frequent_words = QLabel("Most frequently used words:")
         self.grid.addWidget(self.frequent_words, 4, 0, 1, 1)
         self.frequent_words.setObjectName("category")
-
 
         self.f_words = QLabel("Freq Word")
         self.grid.addWidget(self.f_words, 4, 1, 1, 1)
@@ -77,8 +77,6 @@ class Window(QWidget):
         self.per_neg = QLabel("percent")
         self.grid.addWidget(self.per_neg, 8, 1, 1, 1)
 
-        # Signals and Slot
-
         # Set Style
         self.set_style()
 
@@ -91,9 +89,10 @@ class Window(QWidget):
             self.setStyleSheet(f.read())
 
     def hit_button(self):
-        # twitter_words = twitter_scraper(self.name.text())
-        # self.f_words.setText(frequent_words()[0])
-        pass
+        twitter_words = twitter_scraper(self.name.text())
+        print(self.name.text)
+        print(twitter_words)
+        self.f_words.setText(frequent_words(twitter_words))
 
 
     # def rating

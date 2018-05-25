@@ -27,15 +27,22 @@ def percentages(good_words, bad_words):
 
     return negative_percentage, positive_percentage
 
-
+list = ["j", "j", "j", "j", "d", "d", "d", "w", "r", "j"]
 def frequent_words(my_list):
 
     repeats = [[word, my_list.count(word)] for word in my_list]
-    print(repeats.sort(key=lambda x: x[1]))
+    print(repeats)
+    repeats.sort(key=lambda x: x[1])
+    print(repeats)
+
     repeats = dict(repeats)
+    print(repeats)
     repeats = list(repeats)
     #repeats = repeats[-3:]
-    return repeats
+    print(repeats)
+    #return repeats
+
+frequent_words(list)
 
 
 
