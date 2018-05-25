@@ -38,4 +38,5 @@ def twitter_scraper(string):
     word_list5 = [word for word in word_list4 if "." not in word]
     word_list6 = [word for word in word_list5 if "-" not in word]
     print(word_list6)
-twitter_scraper("42")
+if __name__ == "__main__":
+    twitter_scraper("wrvdsd")
