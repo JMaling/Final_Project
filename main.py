@@ -11,14 +11,15 @@ class Window(QWidget):
         # Layout
         self.grid = QGridLayout()
         self.setLayout(self.grid)
-        self.setGeometry(0, 0, 400, 600)
+        self.setGeometry(0, 0, 800, 600)
 
         # Widgets
         self.input_name = QLabel("Enter a name:")
-        self.grid.addWidget(self.input_name, 0, 0, 1, 2)
+        self.grid.addWidget(self.input_name, 0, 0, 1, 1)
 
         self.name = QLineEdit(self)
         self.grid.addWidget(self.name, 0, 1, 1, 1)
+        self.name.setObjectName("name")
 
         self.rate_me = QPushButton("Rate them!")
         self.grid.addWidget(self.rate_me, 0, 2, 1, 1)
