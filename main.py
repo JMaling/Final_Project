@@ -92,7 +92,8 @@ class Window(QWidget):
         twitter_words = twitter_scraper(self.name.text())
         print(self.name.text)
         print(twitter_words)
-        self.f_words.setText(frequent_words(twitter_words))
+       #  self.f_words.setText(frequent_words(twitter_words))
+        print(frequent_words(twitter_words))
 
 
     # def rating
