@@ -18,9 +18,9 @@ def twitter_scraper(string):
     driver.get(url)
     time.sleep(5)
 
-    for i in range(5):
+    for i in range(4):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-        time.sleep(3)
+        time.sleep(1)
 
     htmlSource = driver.page_source
     soup = BeautifulSoup(htmlSource, "html.parser")
@@ -37,6 +37,6 @@ def twitter_scraper(string):
     word_list4 = [word for word in word_list3 if "@" not in word]
     word_list5 = [word for word in word_list4 if "." not in word]
     word_list6 = [word for word in word_list5 if "-" not in word]
-    print(word_list6)
+    return word_list6
 if __name__ == "__main__":
     twitter_scraper("wrvdsd")

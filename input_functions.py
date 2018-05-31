@@ -1,4 +1,7 @@
-def get_good_list(sentiment_list, word_list6):
+
+
+
+def get_good_list(positive_word_list, twitter_list):
     '''
     :param positive_word_list: uci list of good words or bad words
     :param word_list6: twitter feed list of words
@@ -7,12 +10,12 @@ def get_good_list(sentiment_list, word_list6):
     total = 0
     words = []
 
-    for word in word_list6:
-        if word in sentiment_list:
+    for word in twitter_list:
+        if word in positive_word_list:
             total += 1
             words.append(word)
 
-    return words, total
+    return words
 
 
 
@@ -31,6 +34,7 @@ def frequent_words(my_list):
 
     repeats = [[word, my_list.count(word)] for word in my_list]
     print(repeats)
+
     repeats.sort(key=lambda x: x[1])
     print(repeats)
     repeats = dict(repeats)
@@ -42,6 +46,7 @@ def frequent_words(my_list):
     new_repeats = new_repeats[-3:]
     print(new_repeats)
     return new_repeats
+
 
 if __name__ == "__main__":
     frequent_words(["j", "j", "j", "d", "d", "m", "m", "m", "z", "z", "z"])
