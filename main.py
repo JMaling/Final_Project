@@ -54,7 +54,7 @@ class Window(QWidget):
         self.positive_words.setObjectName("category")
 
         self.pos_words = QLabel("")
-        self.grid.addWidget(self.pos_words, 6, 1, 1, 1)
+        self.grid.addWidget(self.pos_words, 5, 1, 1, 1)
 
         self.negative_words = QLabel("Most frequently used negative words:")
         self.grid.addWidget(self.negative_words, 6, 0, 1, 1)
