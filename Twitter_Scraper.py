@@ -18,9 +18,9 @@ def twitter_scraper(string):
     driver.get(url)
     time.sleep(5)
 
-    for i in range(4):
+    for i in range(5):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-        time.sleep(1)
+        time.sleep(0.5)
 
     htmlSource = driver.page_source
     soup = BeautifulSoup(htmlSource, "html.parser")
