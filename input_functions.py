@@ -42,10 +42,10 @@ def frequent_words(my_list):
     new_repeats = []
     for key, value in repeats.items():
         new_repeats.append([key, value])
-    new_repeats = [x[0] for x in new_repeats]
+    new_repeats = [x[0] for x in new_repeats if len(x[0]) > 3]
     new_repeats = new_repeats[-3:]
     print(new_repeats)
-    return new_repeats
+    return new_repeats, repeats
 
 
 if __name__ == "__main__":

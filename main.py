@@ -31,14 +31,14 @@ class Window(QWidget):
         self.rate_me.clicked.connect(lambda: self.hit_button())
 
         self.directions = QLabel("The rating scale is from 1 to 10, 10 being the best rating and 1 being the worst rating.")
-        self.grid.addWidget(self.directions, 2, 0, 1, 6)
+        self.grid.addWidget(self.directions, 2, 1, 1, 6)
         self.directions.setObjectName("directions")
 
         self.rating = QLabel("Rating:")
         self.grid.addWidget(self.rating, 3, 0, 1, 1)
         self.rating.setObjectName("category")
 
-        self.rating_value = QLabel("Rating")
+        self.rating_value = QLabel("")
         self.grid.addWidget(self.rating_value, 3, 1, 1, 1)
         self.rating_value.setObjectName("rating_value")
 
@@ -67,14 +67,14 @@ class Window(QWidget):
         self.grid.addWidget(self.percentage_pos, 7, 0, 1, 1)
         self.percentage_pos.setObjectName("category")
 
-        self.per_pos = QLabel("percent")
+        self.per_pos = QLabel("")
         self.grid.addWidget(self.per_pos, 7, 1, 1, 1)
 
         self.percentage_neg = QLabel("Percentage of negative words:")
         self.grid.addWidget(self.percentage_neg, 8, 0, 1, 1)
         self.percentage_neg.setObjectName("category")
 
-        self.per_neg = QLabel("percent")
+        self.per_neg = QLabel("")
         self.grid.addWidget(self.per_neg, 8, 1, 1, 1)
 
         # Set Style
@@ -93,24 +93,36 @@ class Window(QWidget):
             return
         twitter_words = twitter_scraper(self.name.text())
         print(self.name.text())
-        words = frequent_words(twitter_words)
+        words, all_words = frequent_words(twitter_words)
         display = ""
         for word in words:
             display += word + ", "
-        self.f_words.setText(display)
+        self.f_words.setText(display[:-2])
 
-        good_word = frequent_words((get_good_list(positive_word_list, twitter_words)))
+        good_word, all_good_words = frequent_words((get_good_list(positive_word_list, twitter_words)))
         display = ""
         for word in good_word:
             display += word + ", "
-        self.pos_words.setText(display)
+        self.pos_words.setText(display[:-2])
 
-        bad_word = frequent_words((get_good_list(negative_word_list, twitter_words)))
+        bad_word, all_bad_words = frequent_words((get_good_list(negative_word_list, twitter_words)))
         display = ""
         for word in bad_word:
             display += word + ", "
-        self.neg_words.setText(display)
+        self.neg_words.setText(display[:-2])
 
+        p_bad = round(len(all_bad_words) / (len(all_bad_words) + len(all_good_words)) * 100 , 2)
+        self.per_pos.setText(str(p_bad) + "%")
+
+        p_good = round(len(all_good_words) / (len(all_bad_words) + len(all_good_words)) * 100 , 2)
+        self.per_neg.setText(str(p_good) + "%")
+
+        p_good = max(min((p_bad / 100), 0.75), 0.25)
+        p_good -= 0.25
+        p_good *= 20
+
+        rating = round(p_good, 1)
+        self.rating_value.setText(str(rating))
 
     # def rating
 
